@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "../components/Toast";
@@ -30,7 +31,7 @@ function AddStudent() {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                "http://localhost:8081/api/students",
+                `${API_BASE}/api/students`,
                 {
                     method: "POST",
 

@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useToast } from "../components/Toast";
@@ -40,7 +41,7 @@ function AddBook() {
             };
 
             const response = await fetch(
-                "http://localhost:8081/api/books",
+                `${API_BASE}/api/books`,
                 {
                     method: "POST",
 

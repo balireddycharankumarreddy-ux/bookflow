@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useToast } from "../components/Toast";
@@ -20,7 +21,7 @@ function DeleteStudent() {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                `http://localhost:8081/api/students/${id}`,
+                `${API_BASE}/api/students/${id}`,
                 {
                     method: "DELETE",
                     headers: {

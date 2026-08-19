@@ -28,3 +28,11 @@ Thumbs.db
 *.local
 
 .vercel
+
+# Backend IDE files
+backend/**/.metadata/
+backend/**/target/
+backend/**/.settings/
+backend/**/*.classpath
+backend/**/*.factorypath
+backend/**/*.project

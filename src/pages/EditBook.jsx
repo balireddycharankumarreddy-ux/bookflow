@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useToast } from "../components/Toast";
@@ -35,7 +36,7 @@ function EditBook() {
                 }
 
                 const response = await fetch(
-                    `http://localhost:8081/api/books/${id}`,
+                    `${API_BASE}/api/books/${id}`,
                     {
                         method: "GET",
                         headers: {
@@ -102,7 +103,7 @@ function EditBook() {
             };
 
             const response = await fetch(
-                `http://localhost:8081/api/books/${id}`,
+                `${API_BASE}/api/books/${id}`,
                 {
                     method: "PUT",
 

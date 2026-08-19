@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useToast } from "../components/Toast";
@@ -31,7 +32,7 @@ function DeleteBook() {
             }
 
             const response = await fetch(
-                `http://localhost:8081/api/books/${id}`,
+                `${API_BASE}/api/books/${id}`,
                 {
                     method: "DELETE",
 

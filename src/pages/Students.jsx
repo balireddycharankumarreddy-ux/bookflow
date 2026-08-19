@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import "./Students.css";
 import { Link } from "react-router-dom";
 import { FaPlus, FaSearch } from "react-icons/fa";
@@ -35,7 +36,7 @@ function Students() {
                 const token = localStorage.getItem("token");
 
                 const response = await fetch(
-                    "http://localhost:8081/api/students",
+                    `${API_BASE}/api/students`,
                     {
                         method: "GET",
                         headers: {

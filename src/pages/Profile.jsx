@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useEffect, useState } from "react";
 import { useToast } from "../components/Toast";
 import "./Profile.css";
@@ -29,7 +30,7 @@ function Profile() {
                 const token = localStorage.getItem("token");
 
                 const response = await fetch(
-                    `http://localhost:8081/api/users/profile/${encodeURIComponent(loggedInUser.email)}`,
+                    `${API_BASE}/api/users/profile/${encodeURIComponent(loggedInUser.email)}`,
                     {
                         method: "GET",
                         headers: {
@@ -73,7 +74,7 @@ function Profile() {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                `http://localhost:8081/api/users/profile/${encodeURIComponent(user.email)}`,
+                `${API_BASE}/api/users/profile/${encodeURIComponent(user.email)}`,
                 {
                     method: "PUT",
                     headers: {

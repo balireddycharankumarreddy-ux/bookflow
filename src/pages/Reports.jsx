@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useEffect, useState } from "react";
 import "./Reports.css";
 
@@ -22,7 +23,7 @@ function Reports() {
                 const token = localStorage.getItem("token");
 
                 const response = await fetch(
-                    "http://localhost:8081/api/reports/summary",
+                    `${API_BASE}/api/reports/summary`,
                     {
                         method: "GET",
                         headers: {

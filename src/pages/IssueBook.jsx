@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useToast } from "../components/Toast";
@@ -27,7 +28,7 @@ function IssueBook() {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                "http://localhost:8081/api/issues",
+                `${API_BASE}/api/issues`,
                 {
                     method: "POST",
 

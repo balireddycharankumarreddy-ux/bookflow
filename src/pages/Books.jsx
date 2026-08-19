@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import "./Books.css";
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { useState, useEffect, useMemo } from "react";
@@ -33,7 +34,7 @@ useEffect(() => {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                "http://localhost:8081/api/books",
+                `${API_BASE}/api/books`,
                 {
                     method: "GET",
                     headers: {

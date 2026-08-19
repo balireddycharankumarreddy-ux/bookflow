@@ -1,3 +1,4 @@
+import API_BASE from "../config";
 import { useState, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useToast } from "../components/Toast";
@@ -77,7 +78,7 @@ function ForgotPassword() {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/users/send-verification",
+        `${API_BASE}/api/users/send-verification`,
         {
           method: "POST",
           headers: {
@@ -112,7 +113,7 @@ function ForgotPassword() {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/users/verify-code",
+        `${API_BASE}/api/users/verify-code`,
         {
           method: "POST",
           headers: {
@@ -159,7 +160,7 @@ function ForgotPassword() {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/users/reset-password",
+        `${API_BASE}/api/users/reset-password`,
         {
           method: "POST",
           headers: {
