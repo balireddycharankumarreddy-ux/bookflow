@@ -1,28 +1,28 @@
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE metadata
-.metadata/
-
-# Java / Gradle / Maven
-*.class
-*.jar
-*.war
-*.ear
-.gradle/
-build/
-target/
-*.log
-
-# Node
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
 
 # Editor
 .vscode/
 .idea/
 *.iml
-*.iws
-*.ipr
-.svn
+*.sw?
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.local
