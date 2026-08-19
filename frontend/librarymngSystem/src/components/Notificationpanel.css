@@ -1,0 +1,43 @@
+.notification-container{
+    position:relative;
+}
+
+.notification-panel{
+    position:absolute;
+    top:45px;
+    right:0;
+    width:320px;
+    background:white;
+    border-radius:14px;
+    box-shadow:0 15px 50px rgba(26, 82, 118, 0.25);
+    overflow:hidden;
+    animation: bfSlideDown .3s ease;
+    z-index:1000;
+    border: 1px solid rgba(26, 82, 118, 0.08);
+    transform-style: preserve-3d;
+}
+
+.notification-panel h3{
+    margin:0;
+    padding:16px;
+    background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-blue-light) 100%);
+    color:white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.notification-item{
+    padding:15px;
+    border-bottom:1px solid #eef2f7;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.notification-item:hover{
+    background: #f0f7ff;
+    transform: translateX(4px);
+}
+
+.notification-item:last-child{
+    border-bottom:none;
+}

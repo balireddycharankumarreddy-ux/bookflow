@@ -1,0 +1,100 @@
+.reports-container{
+    padding:40px;
+    min-height:100vh;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0fe 50%, #f0f8f0 100%);
+    perspective: 1000px;
+}
+
+.reports-container h1 {
+    margin-bottom: 30px;
+    color: var(--bf-blue-dark);
+    font-weight: 800;
+    animation: bfFadeInUp 0.6s ease-out;
+    background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.report-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.report-card {
+    background: var(--bf-card);
+    padding: 30px;
+    text-align: center;
+    border-radius: var(--bf-radius);
+    box-shadow: var(--bf-3d-shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    animation: bfFadeInUp 0.6s ease-out both;
+    border: 1px solid rgba(26, 82, 118, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.report-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--bf-blue), var(--bf-green));
+    border-radius: var(--bf-radius) var(--bf-radius) 0 0;
+}
+
+.report-card:nth-child(1) { animation-delay: 0.1s; }
+.report-card:nth-child(2) { animation-delay: 0.2s; }
+.report-card:nth-child(3) { animation-delay: 0.3s; }
+.report-card:nth-child(4) { animation-delay: 0.4s; }
+
+.report-card:hover {
+    transform: translateY(-8px) rotateX(3deg) rotateY(-2deg) translateZ(10px);
+    box-shadow: var(--bf-shadow-hover);
+}
+
+.report-card h2 {
+    font-size: 35px;
+    margin-bottom: 10px;
+    color: var(--bf-blue);
+    font-weight: 800;
+}
+
+.report-card p {
+    font-size: 18px;
+    color: var(--bf-text-light);
+    font-weight: 500;
+}
+
+.icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.blue{color:var(--bf-blue-light);}
+.green{color:var(--bf-green);}
+.orange{color:#e67e22;}
+.purple{color:#8e44ad;}
+.red{color:#c0392b;}
+
+.activity-section{
+    background:white;
+    padding:25px;
+    border-radius:var(--bf-radius);
+    box-shadow:var(--bf-3d-shadow);
+    margin-top: 30px;
+    border: 1px solid rgba(26, 82, 118, 0.06);
+}
+
+.activity-section ul{
+    margin-top:15px;
+}
+
+.activity-section li{
+    padding:10px 0;
+    border-bottom:1px solid #eef2f7;
+}

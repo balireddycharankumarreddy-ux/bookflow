@@ -1,0 +1,48 @@
+.dashboard-layout {
+    min-height: 100vh;
+    width: 100%;
+    perspective: 1200px;
+}
+
+/* Backdrop overlay for mobile */
+.sidebar-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 47, 68, 0.5);
+    z-index: 9997;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.sidebar-backdrop.visible {
+    opacity: 1;
+}
+
+.main-content {
+    margin-left: 260px;
+    min-height: 100vh;
+    width: calc(100% - 260px);
+}
+
+.page-content {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    box-sizing: border-box;
+    animation: bfFadeIn 0.5s ease-out;
+}
+
+/* Mobile: remove margin, let sidebar overlay */
+@media (max-width: 900px) {
+    .sidebar-backdrop {
+        display: block;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}

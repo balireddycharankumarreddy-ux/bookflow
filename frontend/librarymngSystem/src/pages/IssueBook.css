@@ -1,0 +1,99 @@
+.issuebook-container {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0fe 50%, #f0f8f0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+    perspective: 1200px;
+}
+
+.issuebook-card {
+    width: 650px;
+    max-width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: var(--bf-radius);
+    box-shadow: var(--bf-3d-shadow);
+    box-sizing: border-box;
+    animation: bfRotateIn 0.7s ease-out;
+    transform-style: preserve-3d;
+    border: 1px solid rgba(26, 82, 118, 0.06);
+}
+
+.issuebook-card:hover {
+    transform: translateY(-4px) rotateX(1deg);
+    box-shadow: var(--bf-shadow-hover);
+}
+
+.issuebook-card h2 {
+    text-align: center;
+    color: var(--bf-blue);
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.issuebook-card label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--bf-text);
+}
+
+.issuebook-card .form-control,
+.issuebook-card .form-select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #dde4ec;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.issuebook-card .form-control:focus,
+.issuebook-card .form-select:focus {
+    border-color: var(--bf-blue-light);
+    box-shadow: 0 0 0 4px rgba(41, 128, 185, 0.12);
+    background: white;
+}
+
+.success-message {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, #d5f5e3 0%, #d1e7dd 100%);
+    border-radius: 12px;
+    text-align: center;
+    color: var(--bf-green-dark);
+    animation: bfFadeInUp 0.5s ease-out;
+    border: 1px solid #a9dfbf;
+}
+
+.success-message h4 {
+    margin: 0;
+}
+
+.success-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+    .issuebook-container {
+        padding: 20px;
+    }
+    .issuebook-card {
+        padding: 25px;
+    }
+}

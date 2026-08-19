@@ -1,0 +1,28 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE metadata
+.metadata/
+
+# Java / Gradle / Maven
+*.class
+*.jar
+*.war
+*.ear
+.gradle/
+build/
+target/
+*.log
+
+# Node
+node_modules/
+dist/
+
+# Editor
+.vscode/
+.idea/
+*.iml
+*.iws
+*.ipr
+.svn

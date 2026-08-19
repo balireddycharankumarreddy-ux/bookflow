@@ -1,0 +1,49 @@
+.addstudent-container{
+    width:100%;
+    min-height:calc(100vh - 70px);
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0fe 50%, #f0f8f0 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    perspective: 1200px;
+}
+
+.addstudent-card{
+    width:600px;
+    max-width:100%;
+    background:white;
+    padding:40px;
+    border-radius:var(--bf-radius);
+    box-shadow: var(--bf-3d-shadow);
+    animation: bfRotateIn 0.7s ease-out;
+    transform-style: preserve-3d;
+    border: 1px solid rgba(26, 82, 118, 0.06);
+}
+
+.addstudent-card:hover {
+    transform: translateY(-4px) rotateX(1deg);
+    box-shadow: var(--bf-shadow-hover);
+}
+
+.addstudent-card h2{
+    text-align:center;
+    color: var(--bf-blue);
+    margin-bottom:30px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.success-message{
+    margin-top:25px;
+    text-align:center;
+    padding:20px;
+    background: linear-gradient(135deg, #d5f5e3 0%, #d1e7dd 100%);
+    color: var(--bf-green-dark);
+    border:1px solid #a9dfbf;
+    border-radius:12px;
+    animation: bfFadeInUp 0.5s ease-out;
+}

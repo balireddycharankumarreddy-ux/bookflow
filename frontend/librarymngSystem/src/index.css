@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background: #f0f4f8;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ===== BookFlow Theme Variables ===== */
+:root {
+  --bf-blue: #1a5276;
+  --bf-blue-light: #2980b9;
+  --bf-blue-dark: #0e2f44;
+  --bf-green: #1e8449;
+  --bf-green-light: #27ae60;
+  --bf-green-dark: #145a32;
+  --bf-white: #ffffff;
+  --bf-bg: #f0f4f8;
+  --bf-card: #ffffff;
+  --bf-text: #2c3e50;
+  --bf-text-light: #7f8c8d;
+  --bf-shadow: 0 10px 40px rgba(26, 82, 118, 0.15);
+  --bf-shadow-hover: 0 20px 60px rgba(26, 82, 118, 0.25);
+  --bf-3d-shadow: 0 20px 60px rgba(26, 82, 118, 0.2), 0 8px 20px rgba(0,0,0,0.08);
+  --bf-radius: 16px;
+  --bf-perspective: 1000px;
+}
+
+/* ===== Global 3D Animations ===== */
+@keyframes bfFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotateX(5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes bfFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px) rotateY(5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+}
+
+@keyframes bfFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px) rotateY(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+}
+
+@keyframes bfFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bfScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateZ(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+
+@keyframes bfFloat {
+  0%, 100% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-8px) rotateX(1deg); }
+}
+
+@keyframes bfPulse3D {
+  0%, 100% { transform: scale(1) translateZ(0); box-shadow: var(--bf-shadow); }
+  50% { transform: scale(1.02) translateZ(5px); box-shadow: var(--bf-shadow-hover); }
+}
+
+@keyframes bfSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) perspective(var(--bf-perspective)) rotateX(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) perspective(var(--bf-perspective)) rotateX(0deg);
+  }
+}
+
+@keyframes bfRotateIn {
+  from {
+    opacity: 0;
+    transform: perspective(var(--bf-perspective)) rotateY(-15deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(var(--bf-perspective)) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes bfShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes bfGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(26, 82, 118, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(26, 82, 118, 0.4), 0 0 80px rgba(39, 174, 96, 0.1); }
+}
+
+/* ===== 3D Card Base Class ===== */
+.bf-3d-card {
+  background: var(--bf-card);
+  border-radius: var(--bf-radius);
+  box-shadow: var(--bf-3d-shadow);
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bf-3d-card:hover {
+  transform: translateY(-6px) rotateX(2deg) rotateY(-1deg) translateZ(10px);
+  box-shadow: var(--bf-shadow-hover);
+}
+
+/* ===== Page Transition ===== */
+.page-transition {
+  opacity: 0;
+  transform: translateY(18px) perspective(var(--bf-perspective)) rotateX(2deg);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition-enter {
+  opacity: 1;
+  transform: translateY(0) perspective(var(--bf-perspective)) rotateX(0deg);
+}
+
+/* ===== Toast Notifications ===== */
+@keyframes bfToastIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes bfToastOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+}
+
+.bf-toast-container {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+  max-width: 400px;
+  width: 100%;
+}
+
+.bf-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(26, 82, 118, 0.2), 0 4px 12px rgba(0,0,0,0.08);
+  pointer-events: auto;
+  animation: bfToastIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  transform-style: preserve-3d;
+  border-left: 4px solid;
+  font-size: 15px;
+  color: var(--bf-text);
+}
+
+.bf-toast-success {
+  border-left-color: var(--bf-green);
+}
+
+.bf-toast-error {
+  border-left-color: #c0392b;
+}
+
+.bf-toast-warning {
+  border-left-color: #e67e22;
+}
+
+.bf-toast-info {
+  border-left-color: var(--bf-blue-light);
+}
+
+.bf-toast-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.bf-toast-success .bf-toast-icon {
+  background: linear-gradient(135deg, var(--bf-green) 0%, var(--bf-green-light) 100%);
+}
+
+.bf-toast-error .bf-toast-icon {
+  background: linear-gradient(135deg, #a93226 0%, #c0392b 100%);
+}
+
+.bf-toast-warning .bf-toast-icon {
+  background: linear-gradient(135deg, #d35400 0%, #e67e22 100%);
+}
+
+.bf-toast-info .bf-toast-icon {
+  background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-blue-light) 100%);
+}
+
+.bf-toast-message {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.bf-toast-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #999;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.bf-toast-close:hover {
+  color: #333;
+}
+
+@media (max-width: 500px) {
+  .bf-toast-container {
+    top: auto;
+    bottom: 20px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}

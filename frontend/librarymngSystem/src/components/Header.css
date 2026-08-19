@@ -1,0 +1,193 @@
+.header {
+    height: 70px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 4px 20px rgba(26, 82, 118, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-sizing: border-box;
+    animation: bfSlideDown 0.4s ease-out;
+    border-bottom: 2px solid var(--bf-blue);
+}
+
+/* Hamburger button - hidden on desktop */
+.hamburger-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-blue-light) 100%);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(26, 82, 118, 0.3);
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.hamburger-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(26, 82, 118, 0.4);
+}
+
+.hamburger-btn:active {
+    transform: scale(0.95);
+}
+
+.hamburger-icon {
+    font-size: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 28px;
+    background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--bf-blue);
+}
+
+.header-icon:hover {
+    transform: scale(1.15) translateY(-2px);
+    color: var(--bf-green);
+}
+
+.notification-container {
+    position: relative;
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(26, 82, 118, 0.2);
+    padding: 15px;
+    z-index: 1000;
+    animation: bfSlideDown 0.3s ease-out;
+    border: 1px solid #e8eef4;
+}
+
+.notification-dropdown h4 {
+    margin-bottom: 10px;
+    color: var(--bf-blue-dark);
+}
+
+.notification-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-dropdown li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.notification-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid transparent;
+}
+
+.admin-profile:hover {
+    background: #f0f7ff;
+    border-color: var(--bf-blue-light);
+    transform: translateY(-1px);
+}
+
+.profile-icon {
+    font-size: 28px;
+    color: var(--bf-blue);
+}
+
+.admin-profile span {
+    font-size: 18px;
+    color: var(--bf-text);
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #a93226 0%, #c0392b 100%);
+    transform: translateY(-2px) translateZ(5px);
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+}
+
+@media (max-width: 900px) {
+    .hamburger-btn {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 0 15px;
+    }
+    .header h2 {
+        font-size: 20px;
+    }
+    .admin-profile span {
+        display: none;
+    }
+    .logout-btn span,
+    .logout-btn {
+        font-size: 0;
+        padding: 9px 12px;
+    }
+    .logout-btn svg {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,196 @@
+.books-container {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    padding: 40px;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f0fe 50%, #f0f8f0 100%);
+    box-sizing: border-box;
+    perspective: 1000px;
+}
+
+.books-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    animation: bfFadeInUp 0.6s ease-out;
+}
+
+.books-header h1 {
+    margin: 0;
+    color: var(--bf-blue-dark);
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.add-book-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--bf-green) 0%, var(--bf-green-light) 100%);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 20px rgba(30, 132, 73, 0.3);
+    transform-style: preserve-3d;
+}
+
+.add-book-btn:hover {
+    background: linear-gradient(135deg, var(--bf-green-light) 0%, var(--bf-green) 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 132, 73, 0.35);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 30px;
+    box-shadow: var(--bf-3d-shadow);
+    box-sizing: border-box;
+    border: 1px solid rgba(26, 82, 118, 0.06);
+    animation: bfFadeInUp 0.6s ease-out 0.1s both;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: var(--bf-blue-light);
+    box-shadow: 0 0 0 4px rgba(41, 128, 185, 0.12), var(--bf-3d-shadow);
+}
+
+.search-icon {
+    font-size: 18px;
+    color: var(--bf-blue-light);
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.books-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--bf-3d-shadow);
+    animation: bfFadeInUp 0.6s ease-out 0.2s both;
+    border: 1px solid rgba(26, 82, 118, 0.06);
+}
+
+.books-table th {
+    background: linear-gradient(135deg, var(--bf-blue) 0%, var(--bf-blue-light) 100%);
+    color: white;
+    padding: 16px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.books-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eef2f7;
+    color: var(--bf-text);
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.books-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.books-table tbody tr:hover td {
+    background: #f0f7ff;
+    transform: translateZ(3px);
+}
+
+.books-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.edit-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+}
+
+.edit-btn:hover {
+    background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+    color: white;
+    transform: translateY(-2px) translateZ(5px);
+}
+
+.delete-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #a93226 0%, #c0392b 100%);
+    color: white;
+    transform: translateY(-2px) translateZ(5px);
+}
+
+.books-table td[colspan="6"] {
+    text-align: center;
+    padding: 30px;
+    color: var(--bf-text-light);
+}
+
+@media (max-width: 900px) {
+    .books-container {
+        padding: 25px;
+    }
+    .books-header h1 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 700px) {
+    .books-container {
+        padding: 20px;
+    }
+    .books-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .books-table {
+        display: block;
+        overflow-x: auto;
+    }
+}

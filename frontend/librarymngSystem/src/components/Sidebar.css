@@ -1,0 +1,102 @@
+.sidebar{
+    width:260px;
+    height:100vh;
+    background: linear-gradient(180deg, var(--bf-blue-dark) 0%, var(--bf-blue) 60%, var(--bf-green-dark) 100%);
+    color:white;
+    position:fixed;
+    left:0;
+    top:0;
+    overflow-y:auto;
+    box-shadow: 4px 0 20px rgba(14, 47, 68, 0.3);
+    animation: bfFadeInLeft 0.5s ease-out;
+    perspective: 600px;
+    transform-style: preserve-3d;
+    z-index: 9998;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo{
+    font-size:26px;
+    font-weight:bold;
+    text-align:center;
+    padding:25px 15px;
+    border-bottom:1px solid rgba(255,255,255,.2);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.logo-text {
+    flex: 1;
+}
+
+.sidebar-close-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.sidebar-close-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.1);
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:20px 0;
+    margin:0;
+}
+
+.sidebar ul li{
+    margin:8px 10px;
+}
+
+.sidebar ul li a{
+    color:rgba(255,255,255,0.85);
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 20px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size:17px;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+}
+
+.sidebar ul li a:hover{
+    background: rgba(255,255,255,0.12);
+    color: white;
+    transform: translateX(6px) translateZ(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-left: 4px solid var(--bf-green-light);
+}
+
+/* Mobile: hide sidebar off-screen by default */
+@media (max-width: 900px) {
+    .sidebar {
+        transform: translateX(-100%);
+        box-shadow: none;
+        animation: none;
+    }
+    .sidebar.sidebar-open {
+        transform: translateX(0);
+        box-shadow: 4px 0 30px rgba(14, 47, 68, 0.5);
+    }
+    .sidebar-close-btn {
+        display: flex;
+    }
+}
