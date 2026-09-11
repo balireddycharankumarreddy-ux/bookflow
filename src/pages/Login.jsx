@@ -129,9 +129,7 @@ if (response.ok) {
 
         <div className="login-links">
 
-          <Link to="/forgot-password">
-            Forgot Password?
-          </Link>
+          
 
           <p>
             Don't have an account?{" "}
